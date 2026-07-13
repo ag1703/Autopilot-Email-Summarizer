@@ -1,9 +1,23 @@
-from llm.ollama_client import ask_model
+import time
+
+from scheduler.scheduler import start_scheduler
 
 
 def main():
-    reply = ask_model("Say hello in one sentence.")
-    print(reply)
+
+    start_scheduler()
+
+    print("AutoPilot Running...")
+
+    try:
+
+        while True:
+
+            time.sleep(2)
+
+    except KeyboardInterrupt:
+
+        print("\nStopping...")
 
 
 if __name__ == "__main__":
