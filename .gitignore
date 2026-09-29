@@ -1,13 +1,28 @@
-.venv/
-
+# Environment variables
 .env
 
+# Python
 __pycache__/
+*.py[cod]
+*.pyo
 
-*.pyc
+# Virtual environment
+.venv/
+venv/
 
+# Database
+*.sqlite
+*.db
+
+# Logs
 logs/
 
-jobs.sqlite
+# Generated summaries
+summaries/
 
+# macOS
+.DS_Store
+
+# IDE
 .vscode/
+.idea/

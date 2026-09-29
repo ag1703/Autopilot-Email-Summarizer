@@ -18,5 +18,11 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 # -------------------------------
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+
 IMAP_SERVER = os.getenv("IMAP_SERVER")
 IMAP_PORT = int(os.getenv("IMAP_PORT"))
+
+# -------------------------------
+# Slack
+# -------------------------------
+SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")

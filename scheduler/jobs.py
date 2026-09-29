@@ -1,25 +1,40 @@
-from datetime import datetime
+from pipeline import run_pipeline
 
-from llm.ollama_client import ask_model
 from utils.logger import logger
 
 
 def ai_job():
     """
-    Runs every scheduled interval.
+    Runs the complete AutoPilot email processing pipeline.
     """
-    logger.info("Scheduled job started.")
 
-    print("=" * 50)
-    print("Running Scheduled AI Job")
-    print(datetime.now())
+    logger.info("Scheduled AutoPilot pipeline started.")
 
-    response = ask_model(
-        "Give me one motivational quote."
-    )
+    print("=" * 60)
+    print("Running Scheduled AutoPilot Pipeline")
+    print("=" * 60)
 
-    print(response)
+    try:
 
-    logger.info("AI Response: %s", response)
+        run_pipeline()
 
-    print("=" * 50)
+        logger.info(
+            "Scheduled AutoPilot pipeline completed successfully."
+        )
+
+        print("=" * 60)
+        print("Scheduled AutoPilot Pipeline Completed")
+        print("=" * 60)
+
+    except Exception as e:
+
+        logger.error(
+            f"Scheduled AutoPilot pipeline failed: {e}"
+        )
+
+        print("=" * 60)
+        print("Scheduled AutoPilot Pipeline Failed")
+        print(e)
+        print("=" * 60)
+
+        raise

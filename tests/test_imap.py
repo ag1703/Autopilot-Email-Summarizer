@@ -1,10 +1,15 @@
 from email_service.imap_client import GmailClient
 
 
-client = GmailClient()
+def main():
 
-client.connect()
+    client = GmailClient()
 
-print(client.mail)
+    client.connect()
 
-client.disconnect()
+    client.disconnect()
+
+
+if __name__ == "__main__":
+
+    main()

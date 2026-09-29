@@ -11,7 +11,8 @@ scheduler = BackgroundScheduler(
         "default": SQLAlchemyJobStore(
             url=DATABASE_URL
         )
-    }
+    },
+    timezone="Asia/Kolkata"
 )
 
 
@@ -28,16 +29,24 @@ def start_scheduler():
 
         print("Scheduler Started")
 
-        if not scheduler.get_job("ai_job"):
+        # scheduler.add_job(
+        #     ai_job,
+        #     trigger="interval",
+        #     minutes=1,
+        #     id="ai_job",
+        #     replace_existing=True
+        # )
 
-            scheduler.add_job(
-                ai_job,
-                trigger="interval",
-                minutes=1,
-                id="ai_job",
-                replace_existing=True
-            )
+        scheduler.add_job(
+            ai_job,
+            trigger="cron",
+            day_of_week="wed",
+            hour=12,
+            minute=40,
+            id="ai_job",
+            replace_existing=True
+        )
 
-            print("AI Job Scheduled")
+        print("AI Job Scheduled")
 
-            logger.info("AI Job Scheduled")
+        logger.info("AI Job Scheduled")
